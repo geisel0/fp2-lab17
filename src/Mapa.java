@@ -25,7 +25,19 @@ class Mapa {
         }
     }
 
-    public Ejercito[][] getMapa() {
-        return mapa;
+    public void mostrarMapa() {
+        System.out.println("   A  B  C  D  E  F  G  H  I  J");
+        for (int i = 0; i < 10; i++) {
+            System.out.print((i + 1) + " ");
+            for (int j = 0; j < 10; j++) {
+                if (mapa[i][j] != null) {
+                    Ejercito ejercito = mapa[i][j];
+                    System.out.print(ejercito.getReino().substring(0, 2).toUpperCase() + ejercito.getNumeroSoldados() + " ");
+                } else {
+                    System.out.print("---- ");
+                }
+            }
+            System.out.println();
+        }
     }
 }

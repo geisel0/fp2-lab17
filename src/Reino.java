@@ -13,7 +13,7 @@ class Reino {
         int numEjercitos = random.nextInt(10) + 1;
         ejercitos = new ArrayList<>();
         for (int i = 0; i < numEjercitos; i++) {
-            ejercitos.add(new Ejercito(mapa));
+            ejercitos.add(new Ejercito(nombre, mapa));
         }
     }
 
@@ -31,7 +31,7 @@ class Reino {
     public int getNivelVidaTotal() {
         int totalNivelVida = 0;
         for (Ejercito ejercito : ejercitos) {
-            totalNivelVida += ejercito.getNivelVidaTotal();
+            totalNivelVida += ejercito.getSoldados().size();
         }
         return totalNivelVida;
     }
@@ -39,7 +39,7 @@ class Reino {
     public int getDanioTotal() {
         int totalDanio = 0;
         for (Ejercito ejercito : ejercitos) {
-            totalDanio += ejercito.getTotalDanio();
+            totalDanio += ejercito.getNumeroSoldados();
         }
         return totalDanio;
     }
