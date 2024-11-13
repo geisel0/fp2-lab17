@@ -6,14 +6,14 @@ class Reino {
     private ArrayList<Ejercito> ejercitos;
     private String entornoFavorable;
 
-    public Reino(String nombre, String entornoFavorable, Mapa mapa) {
+    public Reino(String nombre, String entornoFavorable) {
         this.nombre = nombre;
         this.entornoFavorable = entornoFavorable;
         Random random = new Random();
         int numEjercitos = random.nextInt(10) + 1;
         ejercitos = new ArrayList<>();
         for (int i = 0; i < numEjercitos; i++) {
-            ejercitos.add(new Ejercito(nombre, mapa));
+            ejercitos.add(new Ejercito(nombre));
         }
     }
 
@@ -31,7 +31,7 @@ class Reino {
     public int getNivelVidaTotal() {
         int totalNivelVida = 0;
         for (Ejercito ejercito : ejercitos) {
-            totalNivelVida += ejercito.getSoldados().size();
+            totalNivelVida += ejercito.getNivelVidaTotal();
         }
         return totalNivelVida;
     }
@@ -39,7 +39,7 @@ class Reino {
     public int getDanioTotal() {
         int totalDanio = 0;
         for (Ejercito ejercito : ejercitos) {
-            totalDanio += ejercito.getNumeroSoldados();
+            totalDanio += ejercito.getTotalDanio();
         }
         return totalDanio;
     }
